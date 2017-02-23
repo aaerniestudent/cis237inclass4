@@ -10,6 +10,22 @@ namespace cis237inclass4
     {
         static void Main(string[] args)
         {
+
+            IIntegerLinkedList linkedList = new IntegerLinkedList();
+
+            linkedList.AddMainSort(5);
+            linkedList.AddMainSort(3);
+            linkedList.AddMainSort(4);
+            linkedList.AddMainSort(2);
+            linkedList.AddMainSort(1);
+
+            linkedList.Display();
+
+            linkedList.RemoveMaintainSort(3);
+            linkedList.RemoveMaintainSort(1);
+
+            linkedList.Display();
+
         }
     }
 }
