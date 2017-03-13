@@ -35,6 +35,74 @@ namespace cis237inclass4
             }
         }
 
+        public void AddToFront(int IntegerData)
+        {
+            Node oldHead = _head;
+            _head = new Node();
+            _head.Data = IntegerData;
+            _head.Next = oldHead;
+            _size++;
+            if (_tail==null)
+            {
+                _tail = _head;
+            }
+        }
+
+        public void AddToBack(int IntegerData)
+        {
+            Node oldTail = _tail;
+            _tail = new Node();
+            _tail.Data = IntegerData;
+            _tail.Next = null;
+            _size++;
+            if (_head == null)
+            {
+                _head = _tail;
+            } else
+            {
+                oldTail.Next = _tail;
+            }            
+        }
+
+        public int RemoveFromFront()
+        {
+            if (IsEmpty)
+            {
+                throw new Exception("list is empty");
+            }else {  
+                int returnData = _head.Data;
+                _head = _head.Next;
+                _size--;
+                return returnData;
+            }
+        }
+
+        public int RemoveFromBack()
+        {
+            if (IsEmpty)
+            {
+                throw new Exception("list is empty");
+            }
+            int returnData = _tail.Data;
+            if (_head == _tail)
+            {
+                _head = null;
+                _tail = null;                
+            }
+            else
+            {
+                Node currentNode = _head;
+                while (currentNode.Next != _tail)
+                {
+                    currentNode = currentNode.Next;
+                }
+                _tail = currentNode;
+                _tail.Next = null;                   
+            }
+            _size--;
+            return returnData;  
+        }
+
         public void AddMainSort(int IntegerData)
         {
             Node newNode = new Node();

@@ -10,8 +10,8 @@ namespace cis237inclass4
     {
         static void Main(string[] args)
         {
-
-            IIntegerLinkedList linkedList = new IntegerLinkedList();
+            //just ignoring the iIntegerLinkedList
+            IntegerLinkedList linkedList = new IntegerLinkedList();
 
             linkedList.AddMainSort(5);
             linkedList.AddMainSort(3);
@@ -26,6 +26,21 @@ namespace cis237inclass4
 
             linkedList.Display();
 
+            IGenericLinkedList<string> genericLinkedList = new GenericLinkedList<string>();
+
+            genericLinkedList.AddToFront("A");
+            genericLinkedList.AddToFront("B");
+            genericLinkedList.AddToFront("C");
+            genericLinkedList.AddToBack("D");
+            genericLinkedList.AddToBack("E");
+            genericLinkedList.AddToBack("F");           
+
+            genericLinkedList.Display();
+
+            genericLinkedList.RemoveFromBack();
+            genericLinkedList.RemoveFromFront();
+
+            genericLinkedList.Display();
         }
     }
 }
